@@ -86,8 +86,8 @@ ats_resume_maker/
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/devashish113/ats_and_mock_interview.git
-   cd ats_and_mock_interview
+   git clone https://github.com/kumarraju24165/Ats_resume-Converter-And-Ai-MoCK-Interview.git
+   cd Ats_resume-Converter-And-Ai-MoCK-Interview
    ```
 
 2. **Set environment variables**:
