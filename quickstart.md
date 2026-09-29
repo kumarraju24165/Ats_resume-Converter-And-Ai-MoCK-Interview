@@ -64,27 +64,36 @@ pip install -r requirements.txt
 # Download required NLP model
 python -m spacy download en_core_web_sm
 
-# Add your API key to backend env
-cp .env.example .env
-# Edit backend/.env and set your GROQ_API_KEY
+# Create backend .env file and add your Groq API key
+copy .env.example .env
+# Edit backend/.env and set GROQ_API_KEY=your_groq_api_key_here
 
 # Start backend server
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+.\venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 Backend is now running at `http://localhost:8000`.
 
 ### Terminal 2: Frontend Setup
-Open a new terminal window in the project root:
+Open a new terminal window and run:
 ```bash
 cd frontend
 
 # Install dependencies
 npm install
-
-# Start frontend development server
+```
+Create or update `frontend/.env` with these values:
+```text
+HOST=0.0.0.0
+DANGEROUSLY_DISABLE_HOST_CHECK=true
+REACT_APP_API_URL=http://localhost:8000
+```
+Then start the frontend:
+```bash
 npm start
 ```
-Your browser will automatically open `http://localhost:3000`.
+Your browser should open `http://localhost:3000`.
+
+> If `npm start` fails with a host validation error, confirm you are in the `frontend` folder and that `frontend/.env` contains `HOST=0.0.0.0`.
 
 ---
 
